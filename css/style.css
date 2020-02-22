@@ -1,0 +1,155 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html, body{
+    height:100%;
+    overflow: auto;
+}
+
+.container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: row;
+}
+
+.menu {
+    display: flex;
+    align-content: flex-start;
+    flex-wrap: wrap;
+    width: 300px;
+    min-width: 300px;
+    /* height: 100%; */
+    /* position: fixed; */
+    /* overflow: auto; */
+    box-shadow: -3px 0 10px #000;
+}
+
+.menu .options {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    width: 100%;
+    /* height: calc(100% - 150px); */
+}
+
+.menu .logo,
+.content, .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 150px;
+    background: #5d0a28;
+    color: #fff;
+}
+
+.content .header span {
+    width: 100%;
+}
+
+.content .header .datos {
+    display: flex;
+    justify-content: flex-end;
+    align-content: flex-start;
+    flex-wrap: wrap;
+    width: 300px;
+    height: 100%;
+    padding: 10px;
+    text-align: right;
+}
+
+.content .header .titulo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+
+.menu .logo img {
+    height: 35px;
+}
+
+.content {
+    display: flex;
+    align-content: flex-start;
+    flex-wrap: wrap;
+    width: 100%;
+    /* height: 100%; */
+    /* margin-left: 300px; */
+    background: #fff;
+}
+
+.content article {
+    display: flex;
+    justify-content: flex-start;
+    align-content: flex-start;
+    flex-wrap: wrap;
+    padding: 50px;
+    width: 100%;
+    min-height: calc(100% - 150px);
+}
+
+.content article iframe {
+    display: flex;
+    width: 100%;
+    min-height: 500px;
+    padding: 20px;
+    padding-top: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #000;
+}
+
+
+/* menu */
+/* Style the buttons that are used to open and close the accordion panel */
+.accordion {
+    background-color: #eee;
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    height: 50px;
+    text-align: left;
+    border: none;
+    outline: none;
+    transition: 0.4s;
+}
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+.active, .accordion:hover {
+    background-color: #ccc;
+}
+
+/* Style the accordion panel. Note: hidden by default */
+.panel {
+    width: 100%;
+    background-color: white;
+    display: none;
+    overflow: hidden;
+    padding: 10px;
+    padding-left: 30px;
+} 
+
+.panel a {
+    display: inline-block;
+    width: 100%;
+    text-decoration: none;
+    color: #000;
+    padding: 5px;
+    border-radius: 5px;
+    background: #ccc;
+    margin: 5px 0;
+    transition: all ease 0.3s;
+}
+
+.panel a:hover,
+.panel a:active {
+    background: #5d0a28;
+    color: #fff;
+}

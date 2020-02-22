@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/styles_ejercicios.css">
+    <title>Document</title>
+</head>
+<body>    
+    <h2>Ejercicio: Comisi&oacute;n</h2>
+    <hr>
+    <pre>
+//  main.swift
+//  Ejercicio12512822013
+//
+//  Created by development on 2/15/20.
+//  Copyright © 2020 development. All rights reserved.
+//
+
+import Foundation
+
+var units: Int = 1;
+var keepCalculating = true;
+var input = ""
+var comision = 0.0
+var valor = 0.0
+
+
+while keepCalculating {
+    print("Calculo de comision")
+    print("Ingresar # de unidades:")
+    
+    input = NSString(data: FileHandle.standardInput.availableData, encoding:String.Encoding.utf8.rawValue)! as String
+    input = input.replacingOccurrences(of: "\n", with: "", options: NSString.CompareOptions.literal, range: nil)
+    
+    units = Int(input)!
+    
+    if units > 0 && units <= 100 {
+        valor = 0.25
+    } else if units > 100 && units <= 200 {
+        valor = 0.75
+    } else if units > 200 && units <= 400 {
+        valor = 1.05
+    } else if units > 400 && units <= 900 {
+        valor = 1.25
+    } else {
+        valor = 1.75
+    }
+    
+    comision = Double(units) * valor
+    print("Comision calculada: $\(comision)")
+    
+    print("¿Desea realizar otro calculo? Y/N")
+    
+    input = NSString(data: FileHandle.standardInput.availableData, encoding:String.Encoding.utf8.rawValue)! as String
+    input = input.replacingOccurrences(of: "\n", with: "", options: NSString.CompareOptions.literal, range: nil)
+    
+    if input == "N" || input == "n" {
+        keepCalculating = false
+    }
+}
+
+    </pre>
+</body>
+</html>

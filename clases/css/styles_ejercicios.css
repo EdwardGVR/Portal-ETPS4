@@ -1,0 +1,27 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    padding: 20px;
+}
+
+h2 {
+    font-size: 2em;
+    margin-top: 50px;
+    /* margin-bottom: 40px; */
+}
+
+h2:nth-child(1) {
+    margin-top: 0;
+}
+
+hr {
+    margin-bottom: 20px;
+}
+
+img {
+    display: block;
+    margin-bottom: 20px;
+}

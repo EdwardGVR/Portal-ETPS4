@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/styles_ejercicios.css">
+    <title>Document</title>
+</head>
+<body>    
+    <h2>Tarea: Tabla de comisiones</h2>
+    <hr>
+    <pre>
+// main.swift
+// TAREA12512822013
+// s2t5a1r2l8i2n2k0s13
+// Created by development on 2/18/20.
+//
+
+import Foundation
+
+var units: Int = 1
+var keepCalculating = true;
+var input = ""
+var comision = 0.0
+var valorPorUnidad = 0.0
+var itemNumber = 1
+var totalUnits = 0
+var totalComisions = 0.0
+
+var comisiones:[String] = [String]()
+comisiones.append("|Item     |Unidades     |Valor por unidad     |Comision|")
+
+while keepCalculating {
+    print("Calculadora de comisiones")
+    print("Ingrese el numero de unidades: ")
+    
+    input = NSString(data: FileHandle.standardInput.availableData, encoding:String.Encoding.utf8.rawValue)! as String
+    input = input.replacingOccurrences(of: "\n", with: "", options: NSString.CompareOptions.literal, range: nil)
+    
+    units = Int(input)!
+    
+    totalUnits += units
+    
+    if units > 0 && units <= 100 {
+        valorPorUnidad = 0.25
+    } else if units > 100 && units <= 200 {
+        valorPorUnidad = 0.75
+    } else if units > 200 && units <= 400 {
+        valorPorUnidad = 1.05
+    } else if units > 400 && units <= 900 {
+        valorPorUnidad = 1.25
+    } else {
+        valorPorUnidad = 1.75
+    }
+    
+    comision = Double(units) * valorPorUnidad
+    
+    totalComisions += comision
+    
+    var itemNumberString = String(itemNumber)
+    var itemLength = itemNumberString.characters.count
+    
+    if itemLength <= 9 {
+        var i = 9 - itemLength
+        
+        while itemLength < 9 {
+            itemNumberString += " "
+            itemLength = itemNumberString.characters.count
+        }
+    }
+    
+    var unitsString = String(units)
+    var unitsLength = unitsString.characters.count
+    
+    if unitsLength <= 13 {
+        var i = 13 - unitsLength
+        
+        while unitsLength < 13 {
+            unitsString += " "
+            unitsLength = unitsString.characters.count
+        }
+    }
+    
+    var totalUnitsString = String(totalUnits)
+    var totalUnitsLength = totalUnitsString.characters.count
+    
+    if totalUnitsLength <= 13 {
+        var i = 13 - totalUnitsLength
+        
+        while totalUnitsLength < 13 {
+            totalUnitsString += " "
+            totalUnitsLength = totalUnitsString.characters.count
+        }
+    }
+    
+    var valorString = String(valorPorUnidad)
+    var valorLength = valorString.characters.count
+    
+    if valorLength <= 20 {
+        var i = 20 - valorLength
+        
+        while valorLength < 20 {
+            valorString += " "
+            valorLength = valorString.characters.count
+        }
+    }
+    
+    var comisionString = String(comision)
+    var comisionLength = comisionString.characters.count
+    
+    if comisionLength <= 7 {
+        var i = 7 - comisionLength
+        
+        while comisionLength < 7 {
+            comisionString += " "
+            comisionLength = comisionString.characters.count
+        }
+    }
+    
+    var totalComString = String(totalComisions)
+    var totalComLength = totalComString.characters.count
+    
+    if totalComLength <= 7 {
+        var i = 7 - totalComLength
+        
+        while totalComLength < 7 {
+            totalComString += " "
+            totalComLength = totalComString.characters.count
+        }
+    }
+    
+    comisiones.append("|\(itemNumberString)" + "|\(unitsString)" + "|$\(valorString)" + "|$\(comisionString)|")
+    print("Guardando...")
+    print("Comision #\(itemNumber) almacenada correctamente")
+    itemNumber += 1
+    print("\nDesea realizar otro calculo? Y/N")
+    
+    input = NSString(data: FileHandle.standardInput.availableData, encoding:String.Encoding.utf8.rawValue)! as String
+    input = input.replacingOccurrences(of: "\n", with: "", options: NSString.CompareOptions.literal, range: nil)
+    
+    if input == "N" || input == "n" {
+        keepCalculating = false
+        
+        print("\n Tabla de comisiones calculadas en esta sesion:")
+        print(".______________________________________________________.")
+        for i in comisiones {
+            print("\(i)")
+            print("|_________|_____________|_____________________|________|")
+        }
+        print("|---------|-------------|-----|---------------|--------|")
+        print("|TOTAL    |\(totalUnitsString)|TOTAL                |$\(totalComString)|")
+        print("|_________|_____________|_____________________|________|")
+    }
+    print("\n")
+}
+
+    </pre>
+</body>
+</html>
